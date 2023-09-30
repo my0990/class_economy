@@ -5,14 +5,15 @@ import lottieJson from '../../public//lotties/loginCat.json'
 import Link from 'next/link'
 export default function Home() {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Lottie
                 loop="loop"
                 animationData={lottieJson}
-                play="play"
-                // className={styles.lottie}
+                play
+                
+                className={styles.lottie}
             />
-            <h1 className={styles.infoComment}>등록된 학생이 없습니다. 
+            <h1 className={styles.infoComment}>등록된 학생이 없습니다. &nbsp;
                 <Link href='/test'>
                     <span>학생 추가하기</span>
                 </Link>
