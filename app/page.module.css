@@ -14,21 +14,26 @@
     align-items: center;
     width: 100%;
     background: #EF9595;
-    margin-top: 10%;
+    /* margin: 0; */
+
 }
 .wrapper {
     display: flex;
     justify-content: space-between;
     width: 80%;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .textWrapper {
-    width: 50%;
+    width: 100%;
     color: white;
-    padding: 2em 0;
+    padding: 0;
     min-width: 320px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .textWrapper h1 {
@@ -52,6 +57,32 @@
     margin-left: 16px;
 }
 
+.imgWrapper {
+    display: none;
+    
+}
+
+
+@media all and (min-width:1024px) {
+    .textWrapper {
+        width: 50%;
+        padding: 2em 0;
+
+    }
+    .homeContainer {
+        margin-top: 10rem;
+    }
+    .imgWrapper {
+        position: absolute;
+        margin: 0 0 0 2rem;
+        display: block;
+        width:35vw;
+        top: 0;
+        right: 0;
+        height: 100%;
+    }
+}
+
 /* 테블릿 가로 (해상도 768px ~ 1023px)*/
 /* @media all and (min-width:768px) and (max-width:1023px) {
     .container {
@@ -67,19 +98,9 @@
 } */
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
-/* @media all and (min-width:480px) and (max-width:767px) {
-    .container {
-        min-width: 480px;
-    }
-    .header {
-        width: 480px;
+@media all and (min-width:480px) and (max-width:767px) {
 
-    }
-    .wrapper {
-        width: 480px;
-
-    }
-} */
+}
 
 /* 모바일 세로 (해상도 ~ 479px)*/
 @media all and (max-width:479px) {
@@ -94,4 +115,5 @@
         width: 100%;
 
     }
+
 }

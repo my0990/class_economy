@@ -13,8 +13,15 @@ export default function Home() {
                         nostrud exercitation ullamco
                     </p>
                 </div>
-                <div>
-                    이미지
+                <div className={styles.imgWrapper}>
+                    <Image 
+                        src='/imgs/classroom.jpg'
+                        alt='교실'
+                        fill
+                        style={{objectFit:"cover"}}
+                    />
+
+
                 </div>
             </div>
         </div>
