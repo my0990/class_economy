@@ -8,6 +8,7 @@ export default function TestPage(){
             <h1>test page</h1>
             <h1>test page</h1>
             <h1>test page</h1>
+            <h1>test page</h1>
             <Canvas 
                 text={'naver.com'}
                 width={200}
