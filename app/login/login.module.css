@@ -1,0 +1,15 @@
+.contianer {
+    width: 100%;
+    padding: 48px 0;
+    /* min-height: 100vh; */
+    background-color: #EBEF95;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+    font-size: 18px;
+
+}
+
+.wrapper {
+    width: 320px;
+}

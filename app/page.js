@@ -2,7 +2,9 @@ import Image from 'next/image'
 import styles from './page.module.css'
 
 export default function Home() {
+
     return (
+        <div className={styles.container}>
         <div className={styles.homeContainer}>
             <div className={styles.wrapper}>
                 <div className={styles.textWrapper}>
@@ -20,10 +22,9 @@ export default function Home() {
                         fill
                         style={{objectFit:"cover"}}
                     />
-
-
                 </div>
             </div>
+        </div>
         </div>
     )
 }

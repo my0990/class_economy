@@ -1,0 +1,23 @@
+/* SignWrapper */
+.SignWrapper_wrapper {
+    width: 390px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 86px;
+    height: auto;
+    margin-top: 80px;
+}
+
+
+/* profileIcon */
+.profileIcon_wrapper {
+    width: 156px;
+    height: 156px;
+    border-radius: 100%;
+    overflow: hidden;
+    background-color: #EBEF95;
+    margin-bottom: 80px;
+}
