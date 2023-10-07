@@ -6,7 +6,7 @@ export default function TestPage(props){
         <>
             <h1>test page</h1>
             <Canvas 
-                text={'localhost:3000/student_signup/' + props.params.id}
+                text={'/student_signup/' + props.params.id}
                 width={200}
             />
         </>
