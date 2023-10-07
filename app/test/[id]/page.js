@@ -1,4 +1,4 @@
-
+'use client'
 import { useQRCode } from "next-qrcode"
 export default function TestPage(props){
     const { Canvas } = useQRCode();
@@ -6,7 +6,7 @@ export default function TestPage(props){
         <>
             <h1>test page</h1>
             <Canvas 
-                text={process.env.NEXT_PUBLIC_URL_API_KEY + props.params.id}
+                text={"class-economy.vercel.app/test" + props.params.id}
                 width={200}
             />
         </>

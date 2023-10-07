@@ -1,4 +1,3 @@
-// 'use client'
 import styles from './home.module.css'
 import LottieAnimation from './Lottie'
 import Link from 'next/link'
