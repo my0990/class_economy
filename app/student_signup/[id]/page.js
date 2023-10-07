@@ -7,12 +7,12 @@ import SignInput from "../../components/SignInput"
 import lottie from "@/public/lotties/profileCat"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
-export default async function Student_signup() {
-    let session = await  getServerSession(authOptions);
+export default async function Student_signup(props) {
+
     return (
         <div className={styles.container}>
           <form method="POST" action="/api/auth/studentSignup">
-            <input style={{display: 'none'}} value={session.user.id} name="teacher"/>
+            <input style={{display: 'none'}} value={props.params.id} name="teacher"/>
             <SignWrapper>
                 <h1
                     style={{
