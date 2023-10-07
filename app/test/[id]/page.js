@@ -5,10 +5,10 @@ export default function TestPage(props){
     return(
         <>
             <h1>test page</h1>
-            {/* <Canvas 
+            <Canvas 
                 text={process.env.NEXT_PUBLIC_URL_API_KEY + props.params.id}
                 width={200}
-            /> */}
+            />
         </>
     )
 }
