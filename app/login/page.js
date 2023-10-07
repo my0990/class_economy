@@ -25,6 +25,7 @@ export default function Login() {
         if(response.error){
           alert('다시 확인해주세용')
         } else {
+            console.log(response)
             router.replace('/home')
         }
     }

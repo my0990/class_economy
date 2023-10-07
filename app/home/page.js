@@ -1,28 +1,24 @@
-'use client'
+// 'use client'
 import styles from './home.module.css'
-import Lottie from 'react-lottie-player'
-import lottieJson from '../../public//lotties/loginCat.json'
+import LottieAnimation from './Lottie'
 import Link from 'next/link'
-
-
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 
 
   
 
-export default function Home() {
-
+export default async function Home() {
+    let session = await  getServerSession(authOptions);
+    console.log(session);
+    console.log('test')
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <Lottie
-                    loop="loop"
-                    animationData={lottieJson}
-                    play
-                    className={styles.lottie}
-                />
+                <LottieAnimation />
                 <h1 className={styles.infoComment}>등록된 학생이 없습니다.&nbsp;
-                    <Link href='/test'>
+                    <Link href={`/test/${session.user.id}`}>
                         <span>학생 추가하기</span>
                     </Link>
                 </h1>

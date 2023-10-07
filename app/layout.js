@@ -22,6 +22,9 @@ export default function RootLayout({children}) {
     return (
         <html lang="ko">
             <body className={notoSansKr.className}>
+                <div 
+                    style={{width:'100%', height:'80px'}}
+                />
                 <div className={styles.header}>
                     <div className={styles.headerWrapper}>
                         <Link href='/'>

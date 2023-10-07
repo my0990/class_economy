@@ -31,6 +31,8 @@ export const authOptions = {
           console.log('비번틀림');
           return null
         }
+        console.log('login test')
+        console.log(user)
         return user
       }
     })
@@ -51,12 +53,15 @@ export const authOptions = {
         token.user.name = user.name
         token.user.email = user.email
         token.user.role = user.role
+        token.user.id= user.id
       }
       return token;
     },
     //5. 유저 세션이 조회될 때 마다 실행되는 코드
     session: async ({ session, token }) => {
       session.user = token.user;  
+      session.id = token.id;
+      session.name = token.name;
       return session;
     },
   },
