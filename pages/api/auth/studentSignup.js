@@ -20,7 +20,7 @@ export default async function handler(req,res){
             // }
             await db.collection('user_cred').insertOne(req.body);
             let db2 = (await connectDB).db('classroom_data');
-            await db2.collection(req.body.teacher).insertOne({money:0})
+            await db2.collection(req.body.teacher).insertOne({id: req.body.id, name: req.body.name, money:0})
             return res.status(200).json('성공')
         }
     }
