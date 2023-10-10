@@ -23,7 +23,10 @@ export const metadata = {
 export default async function RootLayout({children}) {
     const session = await  getServerSession(authOptions);
     console.log('test')
-    console.log(session.user)
+    if(session){
+        console.log(session.user)
+    }
+
     return (
         <html lang="ko">
 
