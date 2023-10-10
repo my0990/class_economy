@@ -5,7 +5,9 @@ import LoginMenuBtn from './components/LoginMenuBtn'
 // pages/_app.js
 import {Noto_Sans_KR} from 'next/font/google' // 해당 폰트의 함수를 사용합니다.
 import dotenv from 'dotenv'
-
+import AuthSession from '@/AuthSession'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 dotenv.config();
 
 const notoSansKr = Noto_Sans_KR({
@@ -18,10 +20,15 @@ export const metadata = {
     description: 'class curreny manager'
 }
 
-export default function RootLayout({children}) {
+export default async function RootLayout({children}) {
+    const session = await  getServerSession(authOptions);
+    console.log('test')
+    console.log(session.user)
     return (
         <html lang="ko">
+
             <body className={notoSansKr.className}>
+            <AuthSession>
                 <div 
                     style={{width:'100%', height:'80px'}}
                 />
@@ -43,7 +50,9 @@ export default function RootLayout({children}) {
                         </div>
                     </div>
                 </div>
+
                 {children}
+                </AuthSession>
             </body>
         </html>
     )

@@ -2,6 +2,7 @@
 import { useQRCode } from "next-qrcode"
 export default function TestPage(props){
     const { Canvas } = useQRCode();
+
     return(
         <>
             <h1>test page</h1>

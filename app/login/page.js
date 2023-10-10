@@ -1,15 +1,18 @@
 'use client'
 
-import SignWrapper from "../components/SignWrapper"
+import SignWrapper from "@/app/components/SignWrapper"
 import styles from "./login.module.css"
 import ProfileIcon from "../components/ProfileIcon"
-import lottie from "../../public/lotties/profile"
+import lottie from "@/public/lotties/profile"
 import SignInput from "../components/SignInput"
 import SignBtn from "../components/SignBtn"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation";
-
+import { useSession } from "next-auth/react"
+import { useEffect } from "react"
 export default function Login() {
+    const  { data: session, status } = useSession();
+
     const router = useRouter();
     const login = async (e) => {
         // 원래 실행되는 이벤트 취소
@@ -22,13 +25,16 @@ export default function Login() {
             password,
             redirect: false, 
         })
+
         if(response.error){
           alert('다시 확인해주세용')
-        } else {
-            console.log(response)
-            router.replace('/home')
-        }
+        } 
     }
+    useEffect(()=>{
+        if(session){
+            router.replace('/' + session.user.role)
+        }
+    },[session])
 
     return(
         <div className={styles.contianer}>
