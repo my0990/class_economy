@@ -12,7 +12,6 @@ import { useSession } from "next-auth/react"
 import { useEffect } from "react"
 export default function Login() {
     const  { data: session, status } = useSession();
-    console.log(session)
     const router = useRouter();
     const login = async (e) => {
         // 원래 실행되는 이벤트 취소
@@ -35,11 +34,8 @@ export default function Login() {
 
     useEffect(()=>{
         if(session){
-            router.replace('/' + session.user.role)
+            router.replace('/directory/' + session.user.role)
         }
-
-
-
     },[session])
 
     return(

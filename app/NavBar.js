@@ -7,6 +7,8 @@ import { useSession } from "next-auth/react"
 import { useRouter } from "next/navigation"
 export default function NavBar(){
     const  { data: session, status } = useSession();
+    console.log(status)
+
     return(
         <>
             <div style={{width:'100%', height:'80px'}}/>
@@ -19,15 +21,18 @@ export default function NavBar(){
                     </Link>
                     <div className={styles.menu}></div>
                     <div className={styles.loginMenu}>
+                        
                         {session ?
                         <SignoutBtn/>
-                        :
-                    <> <Link href='/login'> <LoginMenuBtn>로그인</LoginMenuBtn>
-                </Link>
-                <Link href='/signup'>
-                    <LoginMenuBtn>회원가입</LoginMenuBtn>
-                </Link>
-            </>}
+                        : status ==='loading' ? null :
+                    <> 
+                    <Link href='/login'> 
+                        <LoginMenuBtn>로그인</LoginMenuBtn>
+                    </Link>
+                    <Link href='/signup'>
+                        <LoginMenuBtn>회원가입</LoginMenuBtn>
+                    </Link>
+                    </>}
 
             </div>
 

@@ -13,17 +13,15 @@ export default function Home() {
     useEffect(()=>{
 
         if(session){
-            router.push('/home')
 
-        } else {
-            router.push('/login')
+            // router.push('/directory/' + session.user.role)
 
         }
-    })
+    },[session])
+
     return (
         <>
-        redirect
-        {/* <NavBar />
+        <NavBar />
         <div className={styles.container}>
         <div className={styles.homeContainer}>
             <div className={styles.wrapper}>
@@ -45,7 +43,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        </div> */}
+        </div>
         </>
     )
 }

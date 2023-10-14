@@ -6,8 +6,7 @@ import LoginMenuBtn from './components/LoginMenuBtn'
 import {Noto_Sans_KR} from 'next/font/google' // 해당 폰트의 함수를 사용합니다.
 import dotenv from 'dotenv'
 import AuthSession from '@/AuthSession'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
+
 import SignoutBtn from './components/SignoutBtn'
 import Test from './Test'
 import NavBar from './NavBar'
@@ -24,7 +23,7 @@ export const metadata = {
 }
 
 export default async function RootLayout(props) {
-    const session = await  getServerSession(authOptions);
+
     return (
         <html lang="ko">
 

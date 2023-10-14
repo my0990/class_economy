@@ -1,15 +1,19 @@
+'use client'
 import styles from './teacher.module.css'
 import LottieAnimation from './Lottie'
 import Link from 'next/link'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
-
-
-
-  
-
-export default async function Teacher() {
-    return (
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+export default  function Teacher() {
+    const session = useSession();
+    const router = useRouter();
+    useEffect(()=>{
+        if(!session){
+            router.push('/login')
+        } 
+    })
+    return(
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <LottieAnimation />
@@ -21,6 +25,8 @@ export default async function Teacher() {
             </div>
         </div>
     )
+
+
 
 }
 
