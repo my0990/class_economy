@@ -1,11 +1,29 @@
+'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
-
-
-
+import NavBar from './NavBar'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 export default function Home() {
+    const {data : session, status} = useSession();
+    const router = useRouter();
 
+
+    useEffect(()=>{
+
+        if(session){
+            router.push('/home')
+
+        } else {
+            router.push('/login')
+
+        }
+    })
     return (
+        <>
+        redirect
+        {/* <NavBar />
         <div className={styles.container}>
         <div className={styles.homeContainer}>
             <div className={styles.wrapper}>
@@ -27,6 +45,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        </div>
+        </div> */}
+        </>
     )
 }

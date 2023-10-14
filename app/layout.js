@@ -8,6 +8,9 @@ import dotenv from 'dotenv'
 import AuthSession from '@/AuthSession'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
+import SignoutBtn from './components/SignoutBtn'
+import Test from './Test'
+import NavBar from './NavBar'
 dotenv.config();
 
 const notoSansKr = Noto_Sans_KR({
@@ -20,19 +23,14 @@ export const metadata = {
     description: 'class curreny manager'
 }
 
-export default async function RootLayout({children}) {
+export default async function RootLayout(props) {
     const session = await  getServerSession(authOptions);
-    console.log('test')
-    if(session){
-        console.log(session.user)
-    }
-
     return (
         <html lang="ko">
 
             <body className={notoSansKr.className}>
             <AuthSession>
-                <div 
+                {/* <div 
                     style={{width:'100%', height:'80px'}}
                 />
                 <div className={styles.header}>
@@ -42,19 +40,27 @@ export default async function RootLayout({children}) {
                             로고
                         </div>
                         </Link>
-                        <div className={styles.menu}></div>
-                        <div className={styles.loginMenu}>
+                        <div className
+                        ={styles.menu}></div>
+                        <div className={styles.loginMenu}> 
+                            {session 
+                            ? <SignoutBtn /> 
+                            : <>
                             <Link href='/login'>
                                 <LoginMenuBtn>로그인</LoginMenuBtn>
                             </Link>
                             <Link href='/signup'>
                                 <LoginMenuBtn>회원가입</LoginMenuBtn>
                             </Link>
-                        </div>
-                    </div>
-                </div>
+                            </>}
 
-                {children}
+                            
+                        </div>
+                        
+                    </div>
+                </div> */}
+                {/* <NavBar /> */}
+                {props.children}
                 </AuthSession>
             </body>
         </html>

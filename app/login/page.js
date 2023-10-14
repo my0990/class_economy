@@ -12,7 +12,7 @@ import { useSession } from "next-auth/react"
 import { useEffect } from "react"
 export default function Login() {
     const  { data: session, status } = useSession();
-
+    console.log(session)
     const router = useRouter();
     const login = async (e) => {
         // 원래 실행되는 이벤트 취소
@@ -28,16 +28,23 @@ export default function Login() {
 
         if(response.error){
           alert('다시 확인해주세용')
-        } 
+        }  else {
+            alert('ok')
+        }
     }
+
     useEffect(()=>{
         if(session){
             router.replace('/' + session.user.role)
         }
+
+
+
     },[session])
 
     return(
         <div className={styles.contianer}>
+            
             <form onSubmit={login}>
             <SignWrapper style={{height: '840px'}}>
                 <h1 style={{textAlign:'center', fontSize:'1.5rem',margin:'60px 0 48px 0', color: '#666666', fontWeight: '600'}}>로그인</h1>
