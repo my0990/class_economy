@@ -1,14 +1,17 @@
-'use client'
+// 'use client'
 import Link from "next/link"
 import SignoutBtn from "./components/SignoutBtn"
 import LoginMenuBtn from "./components/LoginMenuBtn"
 import styles from "./page.module.css"
-import { useSession } from "next-auth/react"
-import { useRouter } from "next/navigation"
-export default function NavBar(){
-    const  { data: session, status } = useSession();
-    console.log(status)
+// import { useSession } from "next-auth/react"
+// import { useRouter } from "next/navigation"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/pages/api/auth/[...nextauth]"
 
+export default async function NavBar(){
+    // const  { data: session, status } = useSession();
+    const session = await getServerSession(authOptions);
+    console.log(session)
     return(
         <>
             <div style={{width:'100%', height:'80px'}}/>
@@ -24,7 +27,7 @@ export default function NavBar(){
                         
                         {session ?
                         <SignoutBtn/>
-                        : status ==='loading' ? null :
+                        :
                     <> 
                     <Link href='/login'> 
                         <LoginMenuBtn>로그인</LoginMenuBtn>

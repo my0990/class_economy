@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -31,4 +31,37 @@
 
 .infoComment span:hover {
     text-decoration: underline;
+}
+
+/* StudentProfile */
+.profile_container {
+    width: 228px;
+    height: 228px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: skyblue;
+}
+
+.StudentProfileItemWrapper{
+    width: 100%;
+    display: flex;
+}
+.StudentProfileItemContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.profile_icon {
+    width: 96px;
+    height: 96px;
+    border-radius: 100%;
+    background-color: gray;
+}
+
+
+@media all and (min-width:1024px) {
+    .StudentProfileItemWrapper{
+        width: 80%;
+    }
 }

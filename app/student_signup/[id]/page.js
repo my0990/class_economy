@@ -5,8 +5,7 @@ import ProfileIcon from "../../components/ProfileIcon"
 import SignBtn from "../../components/SignBtn"
 import SignInput from "../../components/SignInput"
 import lottie from "@/public/lotties/profileCat"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/pages/api/auth/[...nextauth]"
+
 export default async function Student_signup(props) {
 
     return (

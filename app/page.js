@@ -1,23 +1,25 @@
-'use client'
+// 'use client'
 import Image from 'next/image'
 import styles from './page.module.css'
 import NavBar from './NavBar'
-import { useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+// import { useSession } from 'next-auth/react'
+// import { useRouter } from 'next/navigation'
+// import { useEffect } from 'react'
+import { authOptions } from "@/pages/api/auth/[...nextauth]"
+
 export default function Home() {
-    const {data : session, status} = useSession();
-    const router = useRouter();
+    // const {data : session, status} = useSession();
+    // const router = useRouter();
 
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        if(session){
+    //     if(session){
 
-            // router.push('/directory/' + session.user.role)
+    //         // router.push('/directory/' + session.user.role)
 
-        }
-    },[session])
+    //     }
+    // },[session])
 
     return (
         <>
