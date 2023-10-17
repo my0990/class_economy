@@ -10,7 +10,11 @@ import { connectDB } from "@/util/database"
 export default async function Teacher() {
     const db = (await connectDB).db("classroom_data")
     let result = await db.collection('my0990').find().toArray()
-    console.log(result)
+    result = result.map((a)=>{
+        a._id = a._id.toString()
+        return a
+      })
+
     if(result.length != 0){
         return(
             <div>

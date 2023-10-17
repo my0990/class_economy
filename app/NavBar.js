@@ -1,4 +1,5 @@
 // 'use client'
+
 import Link from "next/link"
 import SignoutBtn from "./components/SignoutBtn"
 import LoginMenuBtn from "./components/LoginMenuBtn"
@@ -7,6 +8,10 @@ import styles from "./page.module.css"
 // import { useRouter } from "next/navigation"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
+
+
+export const dynamic = 'force-dynamic' 
+
 
 export default async function NavBar(){
     // const  { data: session, status } = useSession();
@@ -22,7 +27,9 @@ export default async function NavBar(){
                             로고
                         </div>
                     </Link>
-                    <div className={styles.menu}></div>
+                    <div className={styles.menu}>
+                        <Link href='/directory/teacher'>마이페이지</Link>
+                    </div>
                     <div className={styles.loginMenu}>
                         
                         {session ?
