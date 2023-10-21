@@ -23,19 +23,21 @@ export default function Login() {
             id,
             password,
             redirect: false,
+            callbackUrl: '/directory/' + session.role
 
         })
 
         if(response.error){
           alert('다시 확인해주세용')
         }  
+        await router.push(response.url)
     }
 
-    useEffect(()=>{
-        if(session){
-            router.replace('/directory/' + session.user.role)
-        }
-    },[session])
+    // useEffect(()=>{
+    //     if(session){
+    //         router.replace('/directory/' + session.role)
+    //     }
+    // },[session])
 
     return(
         <div className={styles.contianer}>

@@ -11,7 +11,7 @@ export default async function handler(req,res){
         } else {
             let hash = await bcrypt.hash(req.body.password, 10)
             req.body.password = hash
-            req.body.roll = 'student'
+            req.body.role = 'student'
             let db = (await connectDB).db('class_economy');
             
             // let result = await db.collection('user_cred').findOne({email: req.body.email})
