@@ -22,14 +22,13 @@ export default function Login() {
         const response = await signIn("credentials", {
             id,
             password,
-            redirect: false, 
+            redirect: false,
+
         })
 
         if(response.error){
           alert('다시 확인해주세용')
-        }  else {
-            alert('ok')
-        }
+        }  
     }
 
     useEffect(()=>{

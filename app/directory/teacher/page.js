@@ -2,14 +2,15 @@
 import styles from './teacher.module.css'
 import LottieAnimation from './Lottie'
 import Link from 'next/link'
-// import { useSession } from 'next-auth/react'
-// import { useRouter } from 'next/navigation'
-// import { useEffect } from 'react'
 import StudentProfileItem from './StudentProfileItem'
 import { connectDB } from "@/util/database"
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 export default async function Teacher() {
     const db = (await connectDB).db("classroom_data")
     let result = await db.collection('my0990').find().toArray()
+    const session = await getServerSession(authOptions)
+
     result = result.map((a)=>{
         a._id = a._id.toString()
         return a
@@ -18,7 +19,7 @@ export default async function Teacher() {
     if(result.length != 0){
         return(
             <div>
-                <StudentProfileItem result={result}/>
+                <StudentProfileItem result={result} id={session.id}/>
             </div>
         )
     } else {

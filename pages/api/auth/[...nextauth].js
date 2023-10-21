@@ -45,27 +45,23 @@ export const authOptions = {
     //4. jwt 만들 때 실행되는 코드 
     //user변수는 DB의 유저정보담겨있고 token.user에 뭐 저장하면 jwt에 들어갑니다.
     jwt: async ({ token, user }) => {
-
       if (user) {
         token.user = {};
-        token.user.name = user.name
-        token.user.email = user.email
         token.user.role = user.role
-        // token.user.id= user.id
+        token.user.id= user.id
       }
       return token;
     },
     //5. 유저 세션이 조회될 때 마다 실행되는 코드
     session: async ({ session, token }) => {
-      session.user = token.user;  
-      session.id = token.id;
-      session.name = token.name;
+      session = token.user;  
+
       return session;
     },
   },
-//   pages: {
-//     signIn: '/login',
-// },
+  pages: {
+    signIn: '/login',
+},
   secret : process.env.NEXTAUTH_SECRET,
   adapter : MongoDBAdapter(connectDB)
 };
