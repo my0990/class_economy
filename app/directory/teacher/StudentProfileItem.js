@@ -57,12 +57,11 @@ export default function StudentProfileItem({result,id}){
                     </table>
                 </div>
                 <form method="POST" action={`../api/post/${id}/test`}>
-                    <input style={{display:'none'}} name='data' defaultValue={JSON.stringify(checkItems)}/>
+                    <input style={{display:'none'}} name='data' value={JSON.stringify(checkItems)} readOnly/>
                     <button style={{border: '1px solid black'}}>일괄송금</button>
                 </form>
-
+                <button onClick={()=>{console.log(JSON.stringify(checkItems))}}>test</button>
             </div>
-
         </div>
     )
 }
