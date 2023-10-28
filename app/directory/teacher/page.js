@@ -19,7 +19,7 @@ export default async function Teacher() {
     if(result.length != 0){
         return(
             <div>
-                <StudentProfileItem result={result} id={session.id}/>
+                <StudentProfileItem result={result} id={session? session.id : null}/>
             </div>
         )
     } else {
