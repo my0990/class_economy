@@ -6,6 +6,7 @@ import StudentProfileItem from './StudentProfileItem'
 import { connectDB } from "@/util/database"
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
+
 export default async function Teacher() {
     const db = (await connectDB).db("classroom_data")
     let result = await db.collection('my0990').find().toArray()

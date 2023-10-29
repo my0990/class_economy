@@ -1,3 +1,4 @@
+
 .container {
     display: flex;
     justify-content: flex-start;
@@ -49,26 +50,28 @@
 .StudentProfileItemWrapper{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-direction: column;
 }
 .StudentProfileItemContainer{
     width: 100%;
     display: flex;
     justify-content: center;
-    
 }
 
 .tableName {
-    width: 200px;
+    width: 30%;
+    min-width: 200px;
 }
 
 .tableMoney {
-    width: 400px;
+    width: 60;
+    min-width: 400px;
 }
 
 .tableInput {
-    width: 100px;
+    width: 10%;
+    min-width: 100px;
 }
 
 .profile_icon {
@@ -82,7 +85,46 @@
     align-items: center;
 }
 
+.moneyBtn {
+    /* background-color: #EF9595; */
+    padding: 0 10px;
+    margin: 0 0 20px 20px;
+    border-bottom: 2px solid #EF9595;
+}
 
+.btnWrapper {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+}
+
+
+.modalWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    position: absolute;
+    padding: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+}
+.modalBtn {
+    border: 1px solid #666666;
+    padding: 3px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
 @media all and (min-width:1024px) {
     .StudentProfileItemWrapper{
         width: 80%;

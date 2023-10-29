@@ -5,6 +5,6 @@ export default async function Post(req,res) {
     // db.collection('post').insertOne({title: 'test22'})
     console.log('redirect test')
 
-    res.status(200).redirect('/')
+    res.status(200).redirect('/login')
 
 }

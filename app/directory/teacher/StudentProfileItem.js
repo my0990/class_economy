@@ -2,8 +2,12 @@
 import StudentProfile from './StudentProfile'
 import styles from './teacher.module.css'
 import { useEffect, useState } from 'react'
+import Modal from './Modal'
 export default function StudentProfileItem({result,id}){
     const [checkItems, setCheckItems] = useState([])
+    const [isModalOpen,setIsModalOpen] = useState(false)
+    const [moneyAction, setMoneyAction] = useState(false)
+    const [money,setMoney] = useState(0)
     let checkList = result.map(a => a.id)
 
 
@@ -28,11 +32,46 @@ export default function StudentProfileItem({result,id}){
         }
 
     }
+    const onChange = (e) => {
+        setMoney(e.target.value)
+    }
 
+
+    const onSubmit = (e) => {
+
+        console.log('alert test')
+        console.log(checkItems)
+        if(checkItems.length == 0){
+            alert('학생을 선택해주세요')
+            e.preventDefault()
+        } else if(money == 0){
+            alert('보낼 금액을 입력하세요.')
+            e.preventDefault()
+        }
+    }
+
+    const onBtnClicked = (e) => {
+        setIsModalOpen(true)
+        if(e.target.name === 'send'){
+            setMoneyAction(true)
+        } else {
+            setMoneyAction(false)
+        }
+        
+    }
+    const onParentClick = (e) => {
+        if (e.target === e.currentTarget){
+            setIsModalOpen(false)
+        }
+    }
     return(
         <div className={styles.StudentProfileItemContainer}>
             <div>
-                <div className={styles.StudentProfileItemWrapper}>
+                {/* <div className={styles.StudentProfileItemWrapper}> */}
+                    <div className={styles.btnWrapper}>
+                        <button className={styles.moneyBtn} name="send" onClick={onBtnClicked}>돈 보내기</button>
+                        <button className={styles.moneyBtn} name="take" onClick={onBtnClicked}>돈 빼앗기</button>
+                    </div>
                     <table className={styles.table}>
 
                         <thead>
@@ -55,13 +94,20 @@ export default function StudentProfileItem({result,id}){
                         ) })}
 
                     </table>
-                </div>
-                <form method="POST" action={`/api/post/${id}/test`}>
+
+                    {/* </div> */}
+
+                
+                {/* <form method="POST" action={`/api/post/${id}/test`}>
                     <input style={{display:'none'}} name='data' value={JSON.stringify(checkItems)} readOnly/>
-                    <button style={{border: '1px solid black'}}>일괄송금</button>
-                </form>
-                <button onClick={()=>{console.log(JSON.stringify(checkItems))}}>test</button>
+                    <input value={money} onChange={onChange} name='money'></input>원<button style={{border: '1px solid black'}} onClick={onSubmit}>일괄송금</button>
+                </form> */}
             </div>
+            {isModalOpen ?
+                <div className={styles.modalWrapper} onClick={onParentClick}>
+                    <Modal moneyAction = {moneyAction}  setIsModalOpen={setIsModalOpen} checkItems={checkItems} id={id}/>
+                </div> : null}
+            
         </div>
     )
 }
