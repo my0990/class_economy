@@ -12,6 +12,6 @@ const notoSansKr = Noto_Sans_KR({
 
 export default function LoginMenuBtn(props){
     return(
-        <button {...props} style={{fontSize: "24px", marginLeft:"16px"}} className={notoSansKr.className}>{props.children}</button>
+        <button {...props} style={{fontSize: "24px", marginLeft:"16px", backgroundColor:"#EBEF95", padding: "5px 10px", borderRadius: "10px"}} className={notoSansKr.className}>{props.children}</button>
     )
 }

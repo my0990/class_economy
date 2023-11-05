@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import LoginBtn from "./components/LoginBtn"
-
+import MenuBtn from "./components/MenuBtn"
 export const dynamic = 'force-dynamic' 
 export const revalidate = 0
 export const fetchCache = 'force-no-store'
@@ -27,8 +27,10 @@ export default async function NavBar(){
                             로고
                         </div>
                     </Link>
-                    <div className={styles.menu}>
-                        {/* <Link href='/directory/teacher'>마이페이지</Link> */}
+                    <div className={styles.menuWrapper}>
+                        {session ? <Link href={`/directory/${session.role}`}><MenuBtn>학생 정보</MenuBtn></Link> : null}
+                        <Link href="/login"><MenuBtn>메뉴1</MenuBtn></Link>
+                        <MenuBtn>메뉴2</MenuBtn>
                     </div>
                     <div className={styles.loginMenu}>
                         

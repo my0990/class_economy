@@ -36,7 +36,9 @@
     flex-direction: column;
     justify-content: center;
 }
-
+.menuWrapper {
+    display: flex;
+}
 .textWrapper h1 {
     font-size: 4rem;
 }
