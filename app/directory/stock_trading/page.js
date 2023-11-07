@@ -1,10 +1,19 @@
 'use client'
 import { useState } from "react"
+import styles from './page.module.css'
+import Modal from "./Modal";
+import LottieComponent from "./LottieComponent";
 export default function Stock_trading(){
     const [keyword,setKeyword] = useState();
     const [data,setData] = useState();
+    const [isModalOpen,setIsModalOpen] = useState(false);
     const onChange = (e) => {
         setKeyword(e.target.value)
+    }
+    const onParentClick = (e) => {
+        if (e.target === e.currentTarget){
+            setIsModalOpen(false)
+        }
     }
     const onClick = async () => {
         console.log("fetch start")
@@ -20,19 +29,25 @@ export default function Stock_trading(){
 
     }
     return(
-        <div>
-            주식 종목 검색
-            <div>
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                {/* <div className={styles.lottie}>
+                    <LottieComponent />
+                </div> */}
+                <div className={styles.searchWrapper}>
+                    {/* <h1 className={styles.searchTitle}>주식 종목 검색</h1> */}
+                    {/* {data && data != '실패'
+                    ? 
+                        <Modal  data={data}/>
+                    : null} */}
 
-                <input value={keyword} onChange={onChange}/>
-                <button onClick={onClick}>검색하기</button>
-                {data && data != '실패'
-                ? <div>
-                    <div>{data.result.itmsNm}</div>
-                    <div>{data.result.mkp}</div>
-                    <button>구매하기</button>
-                </div> 
-                : null}
+                    <div className={styles.btnWrapper}>
+                        <input value={keyword} onChange={onChange} className={styles.searchInput} placeholder="이름 또는 코드로 주식 종목 검색"/>
+                        <button onClick={onClick} className={styles.searchBtn}>검색하기</button>
+                    </div>
+                    <Modal  data={data}/>
+  
+                </div>
             </div>
         </div>
     )
