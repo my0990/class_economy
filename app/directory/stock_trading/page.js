@@ -36,17 +36,14 @@ export default function Stock_trading(){
                 </div> */}
                 <div className={styles.searchWrapper}>
                     {/* <h1 className={styles.searchTitle}>주식 종목 검색</h1> */}
-                    {/* {data && data != '실패'
-                    ? 
-                        <Modal  data={data}/>
-                    : null} */}
-
                     <div className={styles.btnWrapper}>
                         <input value={keyword} onChange={onChange} className={styles.searchInput} placeholder="이름 또는 코드로 주식 종목 검색"/>
                         <button onClick={onClick} className={styles.searchBtn}>검색하기</button>
                     </div>
-                    <Modal  data={data}/>
-  
+                    {data && data != '실패'
+                    ? 
+                        <Modal  data={data}/>
+                    : null}
                 </div>
             </div>
         </div>

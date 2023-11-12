@@ -5,6 +5,7 @@ export default async function handler(req,res) {
     req.body.data = JSON.parse(req.body.data)
     let data = req.body.data.map(a => new Object({id: a}))
     let money = Number(req.body.money)
+    
     if(req.body.moneyAction === 'false'){
         money = - money
     }
@@ -19,10 +20,5 @@ export default async function handler(req,res) {
             })
         )
     }
-    
-
-
-
     res.redirect(303,'/directory/teacher')
-
 }

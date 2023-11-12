@@ -49,9 +49,7 @@ export default async function Student(){
             let tmp = compare.getDate()
             compare.setDate(tmp - 1)
             money_log.unshift({date:`${compare.getMonth()+1}월 ${compare.getDate()}일`,money:money2})
-
             money2 -= popped.money
-
             count -= 1
         }
     }

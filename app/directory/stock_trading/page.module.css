@@ -84,6 +84,7 @@
     border-bottom: 1px solid black;
     outline: none;
     margin-right: 4px;
+    text-align: center;
 }
 
 .modalBtnWrapper{

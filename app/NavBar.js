@@ -1,5 +1,3 @@
-
-
 import Link from "next/link"
 import SignoutBtn from "./components/SignoutBtn"
 import LoginMenuBtn from "./components/LoginMenuBtn"
