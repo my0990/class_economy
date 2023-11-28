@@ -1,8 +1,7 @@
-
 import styles from './teacher.module.css'
 import LottieAnimation from './Lottie'
 import Link from 'next/link'
-import StudentProfileItem from './StudentProfileItem'
+import StudentProfile from './StudentProfile'
 import { connectDB } from "@/util/database"
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
@@ -11,19 +10,20 @@ export default async function Teacher() {
     const db = (await connectDB).db("classroom_data")
     let result = await db.collection('my0990').find().toArray()
     const session = await getServerSession(authOptions)
-
+    //학생 정보 불러오기
     result = result.map((a)=>{
         a._id = a._id.toString()
         return a
       })
-
+    //학생 정보 있을 경우
     if(result.length != 0){
         return(
             <div>
-                <StudentProfileItem result={result} id={session? session.id : null}/>
+                <StudentProfile result={result} id={session? session.id : null}/>
             </div>
         )
     } else {
+    //학생 정보 없을 경우 qr코드로 이동
     return(
         <div className={styles.container}>
             <div className={styles.wrapper}>

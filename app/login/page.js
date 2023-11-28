@@ -1,5 +1,4 @@
 'use client'
-
 import SignWrapper from "@/app/components/SignWrapper"
 import styles from "./login.module.css"
 import ProfileIcon from "../components/ProfileIcon"
@@ -33,10 +32,9 @@ export default function Login() {
         }  
 
     }
-
+//세션이 바뀌면 리디렉트
     useEffect(()=>{
         if(session){
-            console.log(session)
             router.replace('/directory/' + session.role)
         }
     },[session])

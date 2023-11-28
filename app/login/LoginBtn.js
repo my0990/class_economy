@@ -1,5 +1,5 @@
 'use client'
-import {signIn , singOut} from 'next-auth/react'
+import {signIn} from 'next-auth/react'
 
 export default function LoginBtn(){
     return (

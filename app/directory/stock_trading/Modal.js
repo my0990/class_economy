@@ -10,24 +10,21 @@ export default function Modal({data}){
         setTotal(e.target.value)
     }
     const onSubmit = (e) => {
-        // e.preventDefault()
         console.log(isBuy)
     }
     return(
         <div className={styles.modalWrapper}>
             <form onSubmit={onSubmit} method="POST" action="/api/stock">
-                <input style={{display: 'none'}} readOnly name='data' value={JSON.stringify({id: session.id, stock_name: data.result.itmsNm, count: total, price: data.result.mkp, buy: isBuy})}/>
+                <input style={{display: 'none'}} readOnly name='data' value={JSON.stringify({id: session.id, stock_name: data.result.itmsNm, count: total, price: data.result.mkp, buy: isBuy, teacher: session.teacher})}/>
                 <div >
-                    {/* <h1 style={{fontSize: '2.4rem'}}>삼성전자</h1> */}
                     <h1>{data.result.itmsNm}</h1>
                     <div style={{marginTop: '24px', textAlign: 'right'}}>
-                        {/* <input className={styles.modalInput} value={total} onChange={onChange}/>주 &#10005; 60000원 */}
                         <input className={styles.modalInput} value={total} onChange={onChange}/>주 &#10005; {data.result.mkp}원
                     </div>
                     <div style={{textAlign: 'right'}}> 
                         <div>
                             <span style={{marginRight:'24px'}}>총</span>
-                            <span style={{fontSize:'1.6rem', color:'red'}}>{total ? total * 60000 : null}</span>원
+                            <span style={{fontSize:'1.6rem', color:'red'}}>{total ? total *  data.result.mkp : null}</span>원
                         </div>
                     </div>
                     <div className={styles.modalBtnWrapper}>

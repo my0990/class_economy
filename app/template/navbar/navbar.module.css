@@ -1,0 +1,12 @@
+.btn {
+    padding: 8px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: red;
+    scale: 1.1;
+}

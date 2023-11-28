@@ -1,4 +1,3 @@
-
 import styles from "./student_signup.module.css"
 import SignWrapper from "../../components/SignWrapper"
 import ProfileIcon from "../../components/ProfileIcon"
