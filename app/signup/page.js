@@ -1,8 +1,8 @@
 import styles from "./signup.module.css"
-import SignWrapper from "../components/SignWrapper"
+import SignWrapper from "../components/commons/sign/SignWrapper"
 import ProfileIcon from "../components/ProfileIcon"
-import SignBtn from "../components/SignBtn"
-import SignInput from "../components/SignInput"
+import SignBtn from "../components/commons/sign/SignBtn"
+import SignInput from "../components/commons/sign/SignInput"
 import lottie from "../../public/lotties/profileCat"
 export default function Signup() {
     return (

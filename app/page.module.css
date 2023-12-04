@@ -36,9 +36,7 @@
     flex-direction: column;
     justify-content: center;
 }
-.menuWrapper {
-    display: flex;
-}
+
 .textWrapper h1 {
     font-size: 4rem;
 }
@@ -47,36 +45,10 @@
   font-size: 2rem;
 }
 
-.header {
-    position: fixed;
-    background-color: white;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    z-index: 999;
-}
-.headerWrapper{
-    width: 100%;
-    height: 80px;
-    margin: 0;
-    display: flex;
-    padding: 1rem;
-    justify-content: space-between;
-}
-.loginMenu {
-    display: flex;
-    align-items: center;
-}
 
-.logo {
-    font-size: 32px;
-    margin-left: 16px;
-    margin: 0;
-}
+
+
+
 
 .imgWrapper {
     display: none;
@@ -87,9 +59,6 @@
 @media all and (min-width:1024px) {
     .container {
         justify-content: center;
-    }
-    .headerWrapper{
-        width: 80%;
     }
     .textWrapper {
         width: 40%;
@@ -123,26 +92,8 @@
     }
 
 } */
-.hamburgerBtn {
-    cursor: pointer;
-}
-
-.menuOpen {
-    transition: all 0.2s ease;
-    visibility: visible;
-    height: 180px;
-}
 
 
-.menuClose {
-    visibility: hidden;
-    transition: all 0.2s ease;
-    height: 0;
-}
-
-.test {
-    color: red;
-}
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/
 @media all and (min-width:480px) and (max-width:767px) {
 

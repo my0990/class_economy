@@ -1,8 +1,8 @@
-import styles from './page.module.css'
+import styles from './sign.module.css'
 
 export default function SignWrapper(props) {
     return(
-        <div className={styles.SignWrapper_wrapper} {...props}>
+        <div className={styles.wrapper} {...props}>
             {props.children}
         </div>
     )

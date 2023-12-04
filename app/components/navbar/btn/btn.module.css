@@ -1,0 +1,28 @@
+/* responsive btn */
+.btn {
+    padding: 8px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    color: red;
+    scale: 1.1;
+}
+
+/* menu btn */
+.menuBtn {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.menuBtn:hover {
+    scale: 1.1;
+    color: red;
+}

@@ -1,10 +1,10 @@
 'use client'
-import SignWrapper from "@/app/components/SignWrapper"
+import SignWrapper from "@/app/components/commons/sign/SignWrapper"
 import styles from "./login.module.css"
 import ProfileIcon from "../components/ProfileIcon"
 import lottie from "@/public/lotties/profile"
-import SignInput from "../components/SignInput"
-import SignBtn from "../components/SignBtn"
+import SignInput from "../components/commons/sign/SignInput"
+import SignBtn from "../components/commons/sign/SignBtn"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react"

@@ -1,0 +1,11 @@
+/* sign wrapper */
+.wrapper {
+    width: 390px;
+    border-radius: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 86px;
+    /* height: auto; */
+}

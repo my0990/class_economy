@@ -1,14 +1,5 @@
 /* SignWrapper */
-.SignWrapper_wrapper {
-    width: 390px;
-    border-radius: 30px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 86px;
-    /* height: auto; */
-}
+
 
 
 /* profileIcon */
@@ -22,11 +13,4 @@
 }
 
 /* menuBtn */
-.menuBtn {
-    font-size: 1.6rem;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-right: 50px;
-}
 

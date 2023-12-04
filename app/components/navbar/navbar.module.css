@@ -1,0 +1,70 @@
+/* NavbarTemplate */
+.header {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.headerWrapper{
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 32px;
+    margin-left: 16px;
+    margin: 0;
+
+}
+
+.logo:hover {
+    scale: 1.3;
+
+}
+
+.hamburgerBtn {
+    cursor: pointer;
+}
+
+.menuWrapper {
+    display: flex;
+}
+
+.loginMenu {
+    display: flex;
+    align-items: center;
+}
+
+.menuOpen {
+    transition: all 0.2s ease;
+    visibility: visible;
+    height: 180px;
+}
+
+.menuClose {
+    visibility: hidden;
+    transition: all 0.2s ease;
+    height: 0;
+}
+
+
+
+
+
+@media all and (min-width:1024px) {
+    .headerWrapper{
+        width: 80%;
+    }
+
+}
