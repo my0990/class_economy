@@ -6,7 +6,6 @@ export default async function handler(req,res) {
     let data = req.body.data.map(a => new Object({id: a}))
     let money = Number(req.body.money)
     const id = req.body.id
-    
     if(req.body.moneyAction === 'false'){
         money = - money
     }

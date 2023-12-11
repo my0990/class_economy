@@ -1,5 +1,7 @@
 import { MongoClient } from 'mongodb'
 const url = `mongodb+srv://my0990:${process.env.NEXT_PUBLIC_API_KEY}@cluster0.rcualza.mongodb.net/`
+// const url = `mongodb+srv://my0990:QoPgvz0f7IefryXX@cluster0.rcualza.mongodb.net/`
+
 
 
 let connectDB

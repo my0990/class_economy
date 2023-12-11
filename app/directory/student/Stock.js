@@ -1,8 +1,8 @@
+import StockItem from "@/app/components/stock/StockItem"
 export default function Stock({stock,keys,currentPriceArray}) {
     return (
-        <div>
-            <table>
-
+        <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            {/* <table>
                 <thead>
                     <tr>
                         <th >종목</th>
@@ -12,26 +12,26 @@ export default function Stock({stock,keys,currentPriceArray}) {
                         <th >보유량</th>
                         <th >가치</th>
                     </tr>
-                </thead>
-
+                </thead> */}
                 {
                     keys.map((a, i) => {
                         return (
-                            <tbody key={i}>
-                                <tr>
-                                    <td>{a}</td>
-                                    <td>{stock[a].price}원</td>
-                                    <td>{currentPriceArray[a]}</td>
-                                    <td>{currentPriceArray[a]  / stock[a].price * 100}%</td>
-                                    <td>{stock[a].count}</td>
-                                    <td>{stock[a].count * stock[a].price}</td>
-                                </tr>
-                            </tbody>
+                            // <tbody key={i}>
+                            //     <tr>
+                            //         <td>{a}</td>
+                            //         <td>{stock[a].price}원</td>
+                            //         <td>{currentPriceArray[a]}</td>
+                            //         <td>{(currentPriceArray[a]  / stock[a].price * 100).toFixed(2)}%</td>
+                            //         <td>{stock[a].count}</td>
+                            //         <td>{stock[a].count * stock[a].price}</td>
+                            //     </tr>
+                            // </tbody>
+                            <StockItem name={a} oldPrice={stock[a].price} amount={stock[a].count} price={currentPriceArray[a]}/>
                         )
                     })
                 }
 
-            </table>
+            {/* </table> */}
         </div>
     )
 }

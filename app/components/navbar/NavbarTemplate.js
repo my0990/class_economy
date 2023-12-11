@@ -11,7 +11,7 @@ import {signIn , signOut} from 'next-auth/react'
 export default function NavBarTemplate({session}) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [menuOpen, setMenuOpen] = useState(false);
-
+    console.log(session)
     useEffect(() => {
         const handleResize = () => {
           setIsMobile(window.innerWidth <= 768);
@@ -52,7 +52,7 @@ export default function NavBarTemplate({session}) {
                 :
                 <div className={styles.menuWrapper}>
                     {session ? <Link href={`/directory/${session.role}`}><MenuBtn>학생 정보</MenuBtn></Link> : null}
-                    <Link href="/login"><MenuBtn>메뉴1</MenuBtn></Link>
+                    <Link href="/directory/stock_trading"><MenuBtn>주식 매매</MenuBtn></Link>
                     <MenuBtn>메뉴2</MenuBtn>
                 </div>}
                 {isMobile ? null 
@@ -70,7 +70,7 @@ export default function NavBarTemplate({session}) {
             </div>
             <div className={menuOpen ? styles.menuOpen : styles.menuClose}>
                 {session ? <Link href={`/directory/${session.role}`}><ResponsiveBtn>학생 정보</ResponsiveBtn></Link> : null}    
-                <ResponsiveBtn>메뉴1</ResponsiveBtn>
+                <Link href="directory/stock_trading"><ResponsiveBtn>주식 매매</ResponsiveBtn></Link>
                 <ResponsiveBtn>메뉴2</ResponsiveBtn>
                 {session 
                     ?<ResponsiveBtn onClick={()=>{signOut({callbackUrl: 'http://localhost:3000/'})}}>로그아웃</ResponsiveBtn>
