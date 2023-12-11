@@ -64,8 +64,8 @@ export const authOptions = {
   pages: {
     signIn: '/login',
 },
-  // secret : process.env.NEXTAUTH_SECRET,
-  secret : 'abc1234',
+  secret : process.env.NEXTAUTH_SECRET,
+  // secret : 'abc1234',
   adapter : MongoDBAdapter(connectDB)
 };
 export default NextAuth(authOptions); 
