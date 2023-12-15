@@ -26,7 +26,7 @@ export default function Stock({stock,keys,currentPriceArray}) {
                             //         <td>{stock[a].count * stock[a].price}</td>
                             //     </tr>
                             // </tbody>
-                            <StockItem name={a} oldPrice={stock[a].price} amount={stock[a].count} price={currentPriceArray[a]}/>
+                            <StockItem key={i} name={a} oldPrice={stock[a].price} amount={stock[a].count} price={currentPriceArray[a]}/>
                         )
                     })
                 }
