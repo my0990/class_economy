@@ -7,7 +7,7 @@ export default function Chart({date}){
     return(
       <ResponsiveContainer width="100%" height="80%">
         <LineChart
-          width={500}
+          width={400}
           height={200}
           data={date}
           margin={{
@@ -16,6 +16,7 @@ export default function Chart({date}){
             left: 20,
             bottom: 10,
           }}
+
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />

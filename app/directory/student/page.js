@@ -5,7 +5,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { connectDB } from "@/util/database"
 import Chart from './Chart'
 import Stock from './Stock'
-
+import PieChartComponent from './PieChartComponent'
 
 
 
@@ -22,13 +22,14 @@ export default async function Student() {
 
 
     const session = await getServerSession(authOptions);
+    console.log('session: ' ,session)
     //사용자가 가진 정보
     const db = (await connectDB).db("classroom_data")
     let result = await db.collection(session.teacher).find({ id: session.id }).toArray()
     //사용자의 통화 거래 기록 가져와서 날짜별 보유 금액 계산
     const db2 = (await connectDB).db("trade_log")
     //7일 동안의 로그 불러오기
-    let log = await db2.collection("my0990").find({ $and: [{ to: session.id, orderDate: { "$gte": weekAgo } }] }).toArray()
+    let log = await db2.collection(session.teacher).find({ $and: [{ to: session.id, orderDate: { "$gte": weekAgo } }] }).toArray()
     //당일 자정
     let compare = new Date(new Date().setHours(9, 0, 0, 0));
     //최종 결과물 담길 객체 배열, 오늘 날짜와 현재 가진 돈 넣어 놓기
@@ -63,7 +64,7 @@ export default async function Student() {
     }
     //학생이 가진 주식 정보 가져오기
     const db3 = (await connectDB).db("stock")
-    const stock = await db3.collection("my0990").find({ id: session.id }).toArray();
+    const stock = await db3.collection(session.teacher).find({ id: session.id }).toArray();
     delete stock[0]['_id']
     delete stock[0]['id']
     const keys = Object.keys(stock[0]);
@@ -96,9 +97,16 @@ export default async function Student() {
                     <h1>자산 동향</h1>
                     <Chart date={money_log} />  
                 </div>
-                <div style={{minWidth: '320px'}}>
-                    <h1>보유 주식</h1>
-                    <Stock stock={stock[0]} keys={keys} currentPriceArray={currentPriceArray} />
+                {/* <div style={{minWidth: '320px', display: 'flex', justifyContent:'center',width: '100%',maxWidth: '900px',flexWrap: "wrap"}}> */}
+                <div className={styles.stockInfo}>
+                    <div>
+                        <h1>보유 주식</h1>
+                        <Stock stock={stock[0]} keys={keys} currentPriceArray={currentPriceArray} />
+                    </div>
+                    <div>
+                        <h1>주식 구성</h1>
+                        <PieChartComponent  stock={stock[0]} keys={keys} currentPriceArray={currentPriceArray}/>
+                    </div>
                 </div>
             </div>
         </div>

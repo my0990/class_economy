@@ -17,7 +17,9 @@
     width: 100%;
     min-width: 320px;
     margin-top: 2rem;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .profileWrapper {
     display: flex;
@@ -46,16 +48,19 @@
 
 .moneyInfo {
     width: 100%;
+    max-width: 900px;
     height: 500px;
     border-radius: 20px;
 }
 
 
 .stockInfo {
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 300px;
-    border-radius: 20px;
-    padding: 16px;
+    max-width: 900px;
+    flex-wrap: wrap;
 }
 
 .stockInfo h1{
@@ -66,4 +71,11 @@
     .wrapper{
         width: 80%;
     }
+
+}
+@media all and (min-width:605px) {
+    .stockInfo {
+        justify-content: space-between;
+    }
+
 }

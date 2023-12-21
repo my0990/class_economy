@@ -8,8 +8,9 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 export default async function Teacher() {
     const db = (await connectDB).db("classroom_data")
-    let result = await db.collection('my0990').find().toArray()
     const session = await getServerSession(authOptions)
+    let result = await db.collection(session.id).find().toArray()
+    console.log(session)
     //학생 정보 불러오기
     result = result.map((a)=>{
         a._id = a._id.toString()
@@ -29,7 +30,7 @@ export default async function Teacher() {
             <div className={styles.wrapper}>
                 <LottieAnimation />
                 <h1 className={styles.infoComment}>등록된 학생이 없습니다.&nbsp;
-                    <Link href={`/qrcode/my0990`}>
+                    <Link href={`/qrcode/${session.id}`}>
                         <span>학생 추가하기</span>
                     </Link>
 

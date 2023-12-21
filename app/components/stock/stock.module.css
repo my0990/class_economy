@@ -1,5 +1,5 @@
 .wrapper {
-    width: 400px;
+    width: 100%;
     margin-bottom: 1.2rem;
 }
 
@@ -28,3 +28,8 @@
     color: blue;
 }
 
+@media all and (min-width:1024px) {
+    .wrapper{
+        width: 400px;
+    }
+}

@@ -11,13 +11,12 @@ import {signIn , signOut} from 'next-auth/react'
 export default function NavBarTemplate({session}) {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
     const [menuOpen, setMenuOpen] = useState(false);
-    console.log(session)
+
     useEffect(() => {
         const handleResize = () => {
           setIsMobile(window.innerWidth <= 768);
           setMenuOpen(false);
         };
-    
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
       }, []);
@@ -36,7 +35,7 @@ export default function NavBarTemplate({session}) {
                             src="/imgs/logo.png"
                             width={100}
                             height={80}
-                            alt="hamburger"/>
+                            alt="logo"/>
                     </div>
                 </Link>
                 {isMobile 
@@ -50,12 +49,20 @@ export default function NavBarTemplate({session}) {
                     </div>
                 </div>
                 :
-                <div className={styles.menuWrapper}>
-                    {session ? <Link href={`/directory/${session.role}`}><MenuBtn>학생 정보</MenuBtn></Link> : null}
-                    <Link href="/directory/stock_trading"><MenuBtn>주식 매매</MenuBtn></Link>
-                    <MenuBtn>메뉴2</MenuBtn>
-                </div>}
-                {isMobile ? null 
+                session
+                ? session.role === 'teacher' 
+                ? <div className={styles.menuWrapper}>
+                    <Link href={`/directory/${session.role}`}><MenuBtn>교실 화폐 관리</MenuBtn></Link>
+                    <Link href="/directory/stock_trading"><MenuBtn>학생 아이템 관리</MenuBtn></Link>
+                    <Link href={`/qrcode/${session.id}`}><MenuBtn>가입용 QR코드</MenuBtn></Link>
+                </div> 
+                :<div className={styles.menuWrapper}>
+                    <Link href={`/directory/stock_trading`}><MenuBtn>주식 매매하기</MenuBtn></Link>
+                    <Link href="/"><MenuBtn>아이템 사기</MenuBtn></Link>
+                    <Link href="/"><MenuBtn>인벤토리</MenuBtn></Link>
+                </div> 
+                : null}
+                {isMobile ? null
                     :<div className={styles.loginMenu}>
                     {session 
                     ?<SignMenuBtn onClick={()=>{signOut({callbackUrl: 'http://localhost:3000/'})}}>로그아웃</SignMenuBtn>
@@ -69,7 +76,8 @@ export default function NavBarTemplate({session}) {
             </div>
             </div>
             <div className={menuOpen ? styles.menuOpen : styles.menuClose}>
-                {session ? <Link href={`/directory/${session.role}`}><ResponsiveBtn>학생 정보</ResponsiveBtn></Link> : null}    
+                {session 
+                ? <Link href={`/directory/${session.role}`}><ResponsiveBtn>내 정보</ResponsiveBtn></Link> : null}    
                 <Link href="directory/stock_trading"><ResponsiveBtn>주식 매매</ResponsiveBtn></Link>
                 <ResponsiveBtn>메뉴2</ResponsiveBtn>
                 {session 
